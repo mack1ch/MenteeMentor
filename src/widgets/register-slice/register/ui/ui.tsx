@@ -7,8 +7,8 @@ import Image from "next/image";
 import MenteeMentorLogo from "../../../../../public/assets/logos/menteeMentor_logo.png";
 import { useState } from "react";
 import { ConfigProvider, message } from "antd";
-import { registerTheme } from "../theme";
 import { RegisterFormSelector } from "../model";
+import { registerTheme } from "../theme";
 export const Register = () => {
   const [currentRoadItemID, setCurrentRoadItemID] = useState<number>(1);
   const handleRoadClick = (roadItemID: number) => {

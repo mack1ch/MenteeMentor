@@ -34,7 +34,7 @@ export const AuthFormInputs = () => {
                   label={DAuthFormInputsLabels.login}
                   rules={[{ required: true }]}
                 >
-                  <Input size="large" type="number" />
+                  <Input size="large" type="tel" />
                 </Form.Item>
                 <Form.Item
                   name={DAuthFormInputsLabels.password}

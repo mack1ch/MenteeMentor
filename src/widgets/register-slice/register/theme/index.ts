@@ -3,10 +3,8 @@ import { ThemeConfig } from "antd";
 export const registerTheme: ThemeConfig = {
   components: {
     Button: {
-      colorPrimary: "#222",
-      colorPrimaryActive: "#222",
-      colorPrimaryHover: "#333",
-      borderRadius: 64,
+      colorBgContainerDisabled: "rgba(72, 118, 247, 0.20)",
+      borderRadiusLG: 64,
     },
   },
 };
