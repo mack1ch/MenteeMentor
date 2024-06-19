@@ -1,11 +1,11 @@
 import { ThemeLayout } from "@/shared/layouts/themeLayout";
-import { Auth } from "@/widgets/auth-slice/auth";
+import { Register } from "@/widgets/register-slice/register";
 
 export default function Home() {
   return (
     <>
       <ThemeLayout>
-        <Auth />
+        <Register />
       </ThemeLayout>
     </>
   );

@@ -1,0 +1,15 @@
+.formLayout {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+
+  .h1 {
+    color: #222;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 130%;
+    margin-bottom: 24px;
+  }
+}
