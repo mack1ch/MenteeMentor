@@ -1,0 +1,27 @@
+.headerRouteItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  .navItem {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+    .title {
+      color: #8c888a;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+      text-wrap: nowrap;
+    }
+  }
+  .divider {
+    min-width: 100%;
+    width: 100%;
+    height: 2px;
+    background: #4876f7;
+  }
+}

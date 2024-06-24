@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  max-width: 640px;
+  max-width: 70vw;
   .h1 {
     color: #222;
     font-size: 30px;
@@ -25,11 +25,12 @@
     .article {
       user-select: none;
       border-radius: 18px;
-      background: #fafafa;
+      background: #fff;
       display: flex;
       height: 100px;
       cursor: pointer;
       min-height: 48px;
+      border: 2px solid rgba(72, 118, 247, 0);
       padding: 64px 64px 14px 14px;
       align-items: center;
       color: #222;

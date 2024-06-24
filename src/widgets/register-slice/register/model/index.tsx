@@ -5,12 +5,15 @@ import {
   DRegisterLanguageForm,
   DRegisterSubjectForm,
 } from "../data/registerRoad";
+import { RegisterLanguageForm } from "@/features/register-slice/registerLanguageForm";
 
 export const RegisterFormSelector = ({
   currentRoadItemID,
   onClick,
+  isLoading = false,
 }: {
   currentRoadItemID: number;
+  isLoading: boolean;
   onClick: () => void;
 }) => {
   switch (currentRoadItemID) {
@@ -21,14 +24,14 @@ export const RegisterFormSelector = ({
     case 3:
       return (
         <RegisterSubjectForm
-        
           subjectData={DRegisterSubjectForm}
           onClick={onClick}
         />
       );
     case 4:
       return (
-        <RegisterSubjectForm
+        <RegisterLanguageForm
+          isLoading={isLoading}
           subjectData={DRegisterLanguageForm}
           onClick={onClick}
         />

@@ -1,0 +1,31 @@
+.timeVariantsWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+
+  .timeVariant {
+    display: flex;
+    padding: 16px 0;
+    width: calc(100% / 3);
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 24px;
+    background: rgba(72, 118, 247, 0.05);
+    color: #4876f7;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 135%;
+    text-wrap: nowrap;
+    .time {
+      color: #9cb6ff;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 135%;
+    }
+  }
+}

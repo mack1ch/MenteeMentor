@@ -1,26 +1,35 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { Button, ConfigProvider, Form, Input, Space } from "antd";
+import { useState } from "react";
+import { Button, ConfigProvider, Form, FormProps, Input, Space } from "antd";
 import { DAuthFormInputsLabels } from "../data/text";
 import { authFormTheme } from "../theme";
 import styles from "./ui.module.scss";
 import Link from "next/link";
+import { IAuthFormData } from "../interface";
+import { postUser } from "../api";
+import { useRouter } from "next/navigation";
+
 export const AuthFormInputs = () => {
   const [form] = Form.useForm();
-  const [isSubmittable, setIsSubmittable] = useState<boolean>(false);
-  const values = Form.useWatch([], form);
-  useEffect(() => {
-    form
-      .validateFields({ validateOnly: true })
-      .then(() => setIsSubmittable(true))
-      .catch(() => setIsSubmittable(false));
-  }, [form, values]);
+  const router = useRouter();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const onFinish: FormProps<IAuthFormData>["onFinish"] = async (values) => {
+    setIsLoading(true);
+    const res = await postUser(values);
+    setIsLoading(false);
+    if (res) {
+      sessionStorage.setItem("accessToken", res?.accessToken);
+      router.push("/app/main");
+    }
+  };
   return (
     <>
       <ConfigProvider theme={authFormTheme}>
         <Space style={{ width: "100%" }} direction="vertical" size={12}>
           <Form
+            onFinish={onFinish}
             style={{ width: "100%" }}
             form={form}
             name="validateOnly"
@@ -32,23 +41,22 @@ export const AuthFormInputs = () => {
                 <Form.Item
                   name={DAuthFormInputsLabels.login}
                   label={DAuthFormInputsLabels.login}
-                  rules={[{ required: true }]}
                 >
                   <Input size="large" type="tel" />
                 </Form.Item>
                 <Form.Item
+                  style={{ marginTop: "-8px" }}
                   name={DAuthFormInputsLabels.password}
                   label={DAuthFormInputsLabels.password}
-                  rules={[{ required: true }]}
                 >
                   <Input.Password size="large" />
                 </Form.Item>
               </Space>
               <Button
+                loading={isLoading}
                 type="primary"
                 htmlType="submit"
-                disabled={!isSubmittable}
-                style={{ width: "100%" }}
+                style={{ width: "100%", height: "58px", marginTop: "-8px" }}
                 size="large"
               >
                 {DAuthFormInputsLabels.button}

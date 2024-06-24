@@ -14,21 +14,21 @@ interface IRegisterSubject {
 export const DRegisterRoad: IRegisterRoad[] = [
   {
     id: 1,
-    title: "Основные данные",
+    title: "Basic info",
   },
   {
     id: 2,
-    title: "Подтверждение номера",
+    title: "Phone confirmation",
   },
 
   {
     id: 3,
-    title: "Специализация",
+    title: "Specialization",
   },
 
   {
     id: 4,
-    title: "Языки",
+    title: "Languages",
   },
 ];
 

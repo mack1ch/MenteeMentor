@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import styles from "./ui.module.scss";
 import { Button } from "antd";
 import { IRegisterSubjectAndLanguageForm } from "@/widgets/register-slice/register/data/registerRoad";
+import { useAppDispatch, useAppSelector } from "@/shared/redux/hooks";
+import { setUserSubjects } from "@/shared/redux/slice/register-slice";
+import useSWR from "swr";
+import { fetcher } from "@/shared/api";
+import { ISubject } from "@/shared/interface/user";
 
 export const RegisterSubjectForm = ({
   onClick,
@@ -12,40 +17,51 @@ export const RegisterSubjectForm = ({
   onClick?: () => void;
   subjectData: IRegisterSubjectAndLanguageForm;
 }) => {
-  const [chooseSubjectIDsArray, setChooseSubjectIDsArray] = useState<number[]>(
-    []
-  );
   const [isSubmittable, setIsSubmittable] = useState<boolean>(false);
-  const handleChooseSubject = (subjectID: number) => {
-    setChooseSubjectIDsArray((prev) =>
-      prev.includes(subjectID)
-        ? prev.filter((id) => id !== subjectID)
-        : [...prev, subjectID]
-    );
-  };
+  const { data: subjects } = useSWR<ISubject[]>("/subjects", fetcher);
+  const dispatch = useAppDispatch();
+  const userSubjects = useAppSelector(
+    (state) => state.registerForm.userSubjects
+  );
+  
+
+  const handleChange = useCallback(
+    (ID: number) => {
+      if (userSubjects?.includes(ID)) {
+        dispatch(
+          setUserSubjects(userSubjects.filter((subjID) => subjID !== ID))
+        );
+      } else {
+        dispatch(setUserSubjects([...(userSubjects ?? []), ID]));
+      }
+    },
+    [dispatch, userSubjects]
+  );
   useEffect(() => {
-    setIsSubmittable(chooseSubjectIDsArray.length > 0);
-  }, [chooseSubjectIDsArray]);
+    if (userSubjects && userSubjects.length > 0) {
+      setIsSubmittable(true);
+    } else {
+      setIsSubmittable(false);
+    }
+  }, [userSubjects]);
+
   return (
     <>
       <div className={styles.wrap}>
         <h1 className={styles.h1}>{subjectData.title}</h1>
         <div className={styles.subjectCardWrap}>
-          {subjectData.subjects.map((subject) => (
+          {subjects?.map((subject) => (
             <article
               style={{
-                background: chooseSubjectIDsArray.includes(subject.id)
-                  ? "#222"
-                  : undefined,
-                color: chooseSubjectIDsArray.includes(subject.id)
-                  ? "#fff"
+                border: userSubjects?.includes(subject.id)
+                  ? "2px solid rgba(72, 118, 247, 1)"
                   : undefined,
               }}
-              onClick={() => handleChooseSubject(subject.id)}
+              onClick={() => handleChange(subject.id)}
               key={subject.id}
               className={styles.article}
             >
-              {subject.title}
+              {subject.name}
             </article>
           ))}
         </div>
@@ -54,7 +70,12 @@ export const RegisterSubjectForm = ({
           htmlType="submit"
           disabled={!isSubmittable}
           onClick={onClick}
-          style={{ width: "100%", marginTop: "32px", maxWidth: "482px" }}
+          style={{
+            width: "100%",
+            marginTop: "32px",
+            maxWidth: "482px",
+            height: "58px",
+          }}
           size="large"
         >
           {subjectData.button}

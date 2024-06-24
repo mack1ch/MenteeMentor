@@ -1,0 +1,40 @@
+.createRoad {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: nowrap;
+  .roadItem {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .roadItem__id {
+      border-radius: 1000px;
+      width: 28px;
+      height: 28px;
+      background: #eee;
+      display: flex;
+      padding: 4px;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 130%;
+    }
+    .roadItem__title {
+      text-wrap: nowrap;
+      color: #d3d3d3;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: 130%;
+    }
+  }
+  .divider {
+    width: 36px;
+    background: #eee;
+    height: 2px;
+  }
+}

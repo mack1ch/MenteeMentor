@@ -9,16 +9,34 @@ import { useState } from "react";
 import { ConfigProvider, message } from "antd";
 import { RegisterFormSelector } from "../model";
 import { registerTheme } from "../theme";
+import { postProfile } from "../api";
+import { useAppSelector } from "@/shared/redux/hooks";
+import { useRouter } from "next/navigation";
 export const Register = () => {
   const [currentRoadItemID, setCurrentRoadItemID] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const router = useRouter();
+  const userLanguages = useAppSelector(
+    (state) => state.registerForm.userLanguages
+  );
+  const userSubjects = useAppSelector(
+    (state) => state.registerForm.userSubjects
+  );
   const handleRoadClick = (roadItemID: number) => {
     setCurrentRoadItemID(roadItemID);
   };
-  const handleContinueClick = () => {
+  const handleContinueClick = async () => {
+    router.prefetch("/app/main");
     if (currentRoadItemID !== 4) {
       setCurrentRoadItemID((prev) => prev + 1);
     } else {
-      message.success("Рега выпонлена");
+      setIsLoading(true);
+      const res = await postProfile(userSubjects, userLanguages);
+      setIsLoading(false);
+      if (res) {
+        message.success("Congratulations! Are you registered");
+        router.push("/app/main");
+      }
     }
   };
   return (
@@ -41,6 +59,7 @@ export const Register = () => {
             </section>
             <section className={styles.formsWrap}>
               <RegisterFormSelector
+                isLoading={isLoading}
                 currentRoadItemID={currentRoadItemID}
                 onClick={handleContinueClick}
               />

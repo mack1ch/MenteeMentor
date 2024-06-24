@@ -1,0 +1,37 @@
+.createQuestion {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 48%;
+  height: auto;
+  background: #fff;
+  border-radius: 48px;
+  overflow: hidden;
+  padding: 32px;
+  margin-top: 20px;
+  gap: 32px;
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    .h2 {
+      color: #222;
+      text-wrap: nowrap;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 800;
+      line-height: normal;
+    }
+    .divider {
+      width: 2px;
+      height: 20px;
+      background: #eee;
+    }
+  }
+  .main {
+    display: flex;
+    width: 100%;
+    height: auto;
+  }
+}

@@ -4,9 +4,9 @@ import styles from "./ui.module.scss";
 const contentStyle: React.CSSProperties = {
   height: "85svh",
   color: "#fff",
-
+  borderRadius: "80px",
   textAlign: "center",
-  background: "#364d79",
+  background: "#6088F8",
 };
 
 export const Advertising = () => {
@@ -17,7 +17,7 @@ export const Advertising = () => {
         size={48}
         style={{ width: "100%", padding: "50px", height: "100%" }}
       >
-        <Carousel style={{ borderRadius: "80px" }} autoplay>
+        <Carousel effect="fade" style={{ borderRadius: "80px" }} autoplay>
           <div style={{ borderRadius: "80px" }}>
             <h3 style={contentStyle}>1</h3>
           </div>

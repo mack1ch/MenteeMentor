@@ -6,6 +6,6 @@ interface IRegisterConfirmPhoneForm {
 
 export const DRegisterConfirmPhoneForm: IRegisterConfirmPhoneForm = {
   label: "code",
-  header: "Basic data",
+  header: "Code",
   button: "continue",
 };

@@ -57,6 +57,7 @@ export const RegisterRoad = ({
                   {roadItem.title}
                 </h3>
               </div>
+
               {roadItem.id !==
                 registerRoadData[registerRoadData.length - 1].id && (
                 <span className={styles.divider} />

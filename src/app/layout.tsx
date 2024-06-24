@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.scss";
 import localFont from "next/font/local";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import StoreProvider from "@/shared/redux/provider";
 
 export const metadata: Metadata = {
   title: "MenteeMentor",
@@ -36,7 +37,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={Mont.className}>
-        <AntdRegistry>{children}</AntdRegistry>
+        <StoreProvider>
+          <AntdRegistry>{children}</AntdRegistry>
+        </StoreProvider>
       </body>
     </html>
   );

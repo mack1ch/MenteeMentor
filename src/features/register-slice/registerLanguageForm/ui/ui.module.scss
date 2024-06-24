@@ -1,0 +1,43 @@
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 640px;
+  .h1 {
+    color: #222;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 130%;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .subjectCardWrap {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    .article {
+      user-select: none;
+      border-radius: 18px;
+      background: #fff;
+      display: flex;
+      height: 100px;
+      cursor: pointer;
+      border: 2px solid rgba(72, 118, 247, 0);
+      min-height: 48px;
+      padding: 64px 64px 14px 14px;
+      align-items: center;
+      color: #222;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 24px;
+    }
+  }
+}
