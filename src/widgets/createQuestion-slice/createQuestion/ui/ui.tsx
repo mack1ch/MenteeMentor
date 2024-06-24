@@ -7,7 +7,7 @@ import { useState } from "react";
 import { CreateQuestionFormSelector } from "../model";
 
 export const CreateQuestion = () => {
-  const [currentRoadItemID, setCurrentRoadItemID] = useState<number>(2);
+  const [currentRoadItemID, setCurrentRoadItemID] = useState<number>(1);
   const handleRoadClick = (roadItemID: number) => {
     setCurrentRoadItemID(roadItemID);
   };

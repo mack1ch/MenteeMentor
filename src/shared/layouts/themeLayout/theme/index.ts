@@ -11,5 +11,8 @@ export const globalTheme: ThemeConfig = {
     Input: {
       controlHeightLG: 50,
     },
+    Select: {
+      controlHeightLG: 50,
+    },
   },
 };
