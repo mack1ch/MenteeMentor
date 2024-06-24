@@ -14,7 +14,7 @@ export const Header = () => {
       <header className={styles.header}>
         <div className={styles.leftSection}>
           <div className={styles.menteeMentorAndDivider}>
-            <Link href="/main">
+            <Link href="/app/main">
               <Image
                 src={MenteeMentor}
                 width={91}
@@ -48,7 +48,7 @@ export const Header = () => {
             </Tooltip>
           </div>
           <span className={styles.divider} />
-          <Link href="/profile" className={styles.profile}>
+          <Link href="/app/profile" className={styles.profile}>
             <Image
               className={styles.userAvatar}
               src={Avatar}
