@@ -28,7 +28,7 @@ export const changedUser = async (
 ): Promise<IUser | null> => {
   const response = await instanceLogged
     .patch<IUser>("/users/me", {
-      name: authFormData.phone,
+      name: authFormData.name,
       phone: authFormData.phone,
       password: authFormData.password,
     })

@@ -8,5 +8,8 @@ export const globalTheme: ThemeConfig = {
     Button: {
       borderRadiusLG: 64,
     },
+    Input: {
+      controlHeightLG: 50,
+    },
   },
 };
