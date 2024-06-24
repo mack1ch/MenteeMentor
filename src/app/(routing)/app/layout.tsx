@@ -1,6 +1,7 @@
 "use client";
 
 import { Header } from "@/features/header-slice/header";
+import { AppLayout } from "@/shared/layouts/appLayout";
 import { ThemeLayout } from "@/shared/layouts/themeLayout";
 import React, { ReactNode } from "react";
 
@@ -13,7 +14,7 @@ export default function LayoutPage({
     <>
       <ThemeLayout>
         <Header />
-        {children}
+        <AppLayout>{children}</AppLayout>
       </ThemeLayout>
     </>
   );
