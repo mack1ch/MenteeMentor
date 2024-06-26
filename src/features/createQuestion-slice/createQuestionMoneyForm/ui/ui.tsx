@@ -1,7 +1,8 @@
-import { Button, Form, Input, Switch } from "antd";
+import { Button, Form, Input, Select, Switch } from "antd";
 import styles from "./ui.module.scss";
 import { DCreateQuestionMoneyFormLabels } from "../data";
-
+import Image from "next/image";
+import Premium from "../../../../../public/icons/premium/premiumWithStars-orange.svg";
 export const CreateQuestionMoneyForm = ({
   onClick,
 }: {
@@ -16,27 +17,11 @@ export const CreateQuestionMoneyForm = ({
         autoComplete="off"
       >
         <Form.Item
-          name={DCreateQuestionMoneyFormLabels.fastAnswerTitle}
-          style={{ width: "100%" }}
-        >
-          <div className={styles.switcher}>
-            <Switch />
-            <span className={styles.labelsWrap}>
-              <label className={styles.labelTitle}>
-                {DCreateQuestionMoneyFormLabels.fastAnswerTitle}
-              </label>
-              <label className={styles.labelSubTitle}>
-                {DCreateQuestionMoneyFormLabels.fastAnswerSubTitle}
-              </label>
-            </span>
-          </div>
-        </Form.Item>
-        <Form.Item
           style={{ width: "100%" }}
           name={DCreateQuestionMoneyFormLabels.howMuchTime}
           label={DCreateQuestionMoneyFormLabels.howMuchTime}
         >
-          <Input size="large" />
+          <Select size="large" />
         </Form.Item>
         <div className={styles.ticketsAndMoney}>
           <Form.Item
@@ -52,6 +37,28 @@ export const CreateQuestionMoneyForm = ({
             label={DCreateQuestionMoneyFormLabels.money}
           >
             <Input type="number" size="large" />
+          </Form.Item>
+          <Form.Item
+            name={DCreateQuestionMoneyFormLabels.fastAnswerTitle}
+            style={{ width: "100%" }}
+          >
+            <div className={styles.switcher}>
+              <Switch />
+              <span className={styles.labelsWrap}>
+                <label className={styles.labelTitle}>
+                  {DCreateQuestionMoneyFormLabels.fastAnswerTitle}
+                </label>
+                <label className={styles.labelSubTitle}>
+                  {DCreateQuestionMoneyFormLabels.fastAnswerSubTitle}
+                </label>
+              </span>
+              <Image
+                src={Premium}
+                width={24}
+                height={24}
+                alt="Just for premium"
+              />
+            </div>
           </Form.Item>
         </div>
         <Button
