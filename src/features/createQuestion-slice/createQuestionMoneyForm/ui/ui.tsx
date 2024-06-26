@@ -38,29 +38,29 @@ export const CreateQuestionMoneyForm = ({
           >
             <Input type="number" size="large" />
           </Form.Item>
-          <Form.Item
-            name={DCreateQuestionMoneyFormLabels.fastAnswerTitle}
-            style={{ width: "100%" }}
-          >
-            <div className={styles.switcher}>
-              <Switch />
-              <span className={styles.labelsWrap}>
-                <label className={styles.labelTitle}>
-                  {DCreateQuestionMoneyFormLabels.fastAnswerTitle}
-                </label>
-                <label className={styles.labelSubTitle}>
-                  {DCreateQuestionMoneyFormLabels.fastAnswerSubTitle}
-                </label>
-              </span>
-              <Image
-                src={Premium}
-                width={24}
-                height={24}
-                alt="Just for premium"
-              />
-            </div>
-          </Form.Item>
         </div>
+        <Form.Item
+          name={DCreateQuestionMoneyFormLabels.fastAnswerTitle}
+          style={{ width: "100%" }}
+        >
+          <div className={styles.switcher}>
+            <Switch />
+            <span className={styles.labelsWrap}>
+              <label className={styles.labelTitle}>
+                {DCreateQuestionMoneyFormLabels.fastAnswerTitle}
+              </label>
+              <label className={styles.labelSubTitle}>
+                {DCreateQuestionMoneyFormLabels.fastAnswerSubTitle}
+              </label>
+            </span>
+            <Image
+              src={Premium}
+              width={24}
+              height={24}
+              alt="Just for premium"
+            />
+          </div>
+        </Form.Item>
         <Button
           onClick={onClick}
           type="primary"
