@@ -1,0 +1,42 @@
+.feedbackCard {
+  border-radius: 42px;
+  background: #fff7f4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 210px;
+  height: auto;
+  gap: 28px;
+  background-image: url("../../../../../public/assets/feedback/feedBack-bg-orange.png");
+  background-size: cover;
+  background-position: center center;
+  .h2 {
+    color: #6a3a2b;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    text-align: center;
+    line-height: 120%;
+  }
+  .primaryButton {
+    display: flex;
+    padding: 18px 128px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 58px;
+    border: none;
+    background: #f77c48;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #fff;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    &:hover {
+      background: #ffaa85;
+    }
+  }
+}

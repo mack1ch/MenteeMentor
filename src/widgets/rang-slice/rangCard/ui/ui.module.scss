@@ -1,0 +1,27 @@
+.rangCard {
+  border-radius: 48px;
+  background: #fff;
+  max-height: 256px;
+  width: 49%;
+  display: flex;
+  padding: 28px 24px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    .p {
+      color: #868686;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 150%;
+    }
+  }
+}
