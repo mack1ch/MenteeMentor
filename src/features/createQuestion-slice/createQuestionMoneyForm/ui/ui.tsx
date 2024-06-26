@@ -3,6 +3,8 @@ import styles from "./ui.module.scss";
 import { DCreateQuestionMoneyFormLabels } from "../data";
 import Image from "next/image";
 import Premium from "../../../../../public/icons/premium/premiumWithStars-orange.svg";
+import Coin from "../../../../../public/icons/price/coin-orange.svg";
+import Ticket from "../../../../../public/icons/price/ticket-blue.svg";
 export const CreateQuestionMoneyForm = ({
   onClick,
 }: {
@@ -27,14 +29,36 @@ export const CreateQuestionMoneyForm = ({
           <Form.Item
             style={{ width: "100%" }}
             name={DCreateQuestionMoneyFormLabels.tickets}
-            label={DCreateQuestionMoneyFormLabels.tickets}
+            label={
+              <>
+                <Image
+                  style={{ marginRight: "4px" }}
+                  src={Ticket}
+                  width={20}
+                  height={20}
+                  alt="Ticket"
+                />{" "}
+                Tickets
+              </>
+            }
           >
             <Input type="number" size="large" />
           </Form.Item>
           <Form.Item
             style={{ width: "100%" }}
             name={DCreateQuestionMoneyFormLabels.money}
-            label={DCreateQuestionMoneyFormLabels.money}
+            label={
+              <>
+                <Image
+                  style={{ marginRight: "4px" }}
+                  src={Coin}
+                  width={20}
+                  height={20}
+                  alt="Coin"
+                />{" "}
+                Coins
+              </>
+            }
           >
             <Input type="number" size="large" />
           </Form.Item>
