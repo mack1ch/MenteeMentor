@@ -5,6 +5,7 @@ import { DCreateQuestionLabels, DCreateQuestionRoadLabels } from "../data";
 import styles from "./ui.module.scss";
 import { useState } from "react";
 import { CreateQuestionFormSelector } from "../model";
+import { message } from "antd";
 
 export const CreateQuestion = () => {
   const [currentRoadItemID, setCurrentRoadItemID] = useState<number>(1);
@@ -12,8 +13,10 @@ export const CreateQuestion = () => {
     setCurrentRoadItemID(roadItemID);
   };
   const handleContinueClick = () => {
-    if (currentRoadItemID !== 4) {
+    if (currentRoadItemID !== 3) {
       setCurrentRoadItemID((prev) => prev + 1);
+    } else {
+      message.success("Отправлено");
     }
   };
   return (

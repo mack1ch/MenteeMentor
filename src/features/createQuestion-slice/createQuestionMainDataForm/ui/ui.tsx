@@ -112,9 +112,9 @@ export const CreateQuestionMainDataForm = ({
           </div>
           <Button
             onClick={onClick}
-            disabled={isSubmittableButton}
+            disabled={!isSubmittableButton}
             type="primary"
-            style={{ width: "100%", height: "58px", marginTop: "-12px" }}
+            style={{ width: "100%", height: "58px" }}
             size="large"
           >
             {DCreateQuestionMainDataFormLabels.button}

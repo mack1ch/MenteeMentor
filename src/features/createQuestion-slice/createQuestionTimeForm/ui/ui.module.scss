@@ -29,3 +29,40 @@
     }
   }
 }
+.variantsWrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 6px;
+  .format {
+    display: flex;
+    padding: 16px 0;
+    width: calc(100% / 3);
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 24px;
+    background: rgba(72, 118, 247, 0.05);
+    color: #4876f7;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 135%;
+    text-wrap: nowrap;
+  }
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  .label {
+    color: #222;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}

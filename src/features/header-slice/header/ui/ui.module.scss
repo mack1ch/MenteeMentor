@@ -6,6 +6,9 @@
   min-height: 90px;
   background: #fff;
   padding: 18px 32px;
+  position: fixed;
+  top: 0;
+  z-index: 10;
   .leftSection {
     display: flex;
     align-items: center;

@@ -1,10 +1,17 @@
-import { Form } from "antd";
-import { DCreateQuestionMainDataFormLabels } from "../data";
+import { Button, Divider, Form, Switch } from "antd";
+import { DCreateQuestionTimeLabelsLabels } from "../data";
 import styles from "./ui.module.scss";
 import { useState } from "react";
-export const CreateQuestionTimeForm = () => {
+import PremiumOrange from "../../../../../public/icons/premium/premiumWithStars-orange.svg";
+import Image from "next/image";
+export const CreateQuestionTimeForm = ({
+  onClick,
+}: {
+  onClick: () => void;
+}) => {
   const [form] = Form.useForm();
   const [timeVariants, setTimeVariants] = useState<number[] | null>(null);
+  const [formatVariants, setFormatVariants] = useState<number[] | null>(null);
   const handleTimeVariant = (variantID: number) => {
     if (timeVariants?.includes(variantID)) {
       setTimeVariants(timeVariants.filter((langID) => langID !== variantID));
@@ -12,6 +19,15 @@ export const CreateQuestionTimeForm = () => {
       setTimeVariants([...timeVariants, variantID]);
     } else {
       setTimeVariants([variantID]);
+    }
+  };
+  const handleFormatVariant = (formatID: number) => {
+    if (formatVariants?.includes(formatID)) {
+      setFormatVariants(formatVariants.filter((langID) => langID !== formatID));
+    } else if (formatVariants) {
+      setFormatVariants([...formatVariants, formatID]);
+    } else {
+      setFormatVariants([formatID]);
     }
   };
   return (
@@ -25,14 +41,14 @@ export const CreateQuestionTimeForm = () => {
       >
         <Form.Item
           style={{ width: "100%" }}
-          name={DCreateQuestionMainDataFormLabels.time}
-          label={DCreateQuestionMainDataFormLabels.time}
+          name={DCreateQuestionTimeLabelsLabels.time}
+          label={DCreateQuestionTimeLabelsLabels.time}
         >
           <div
             style={{ marginBottom: "6px" }}
             className={styles.timeVariantsWrap}
           >
-            {DCreateQuestionMainDataFormLabels.timeVariants
+            {DCreateQuestionTimeLabelsLabels.timeVariants
               .slice(0, 3)
               .map((timeVariant) => (
                 <>
@@ -56,7 +72,7 @@ export const CreateQuestionTimeForm = () => {
               ))}
           </div>
           <div className={styles.timeVariantsWrap}>
-            {DCreateQuestionMainDataFormLabels.timeVariants
+            {DCreateQuestionTimeLabelsLabels.timeVariants
               .slice(3, 5)
               .map((timeVariant) => (
                 <>
@@ -64,7 +80,7 @@ export const CreateQuestionTimeForm = () => {
                     key={timeVariant.id}
                     onClick={() => handleTimeVariant(timeVariant.id)}
                     style={{
-                      width: "calc(100% / 2)",
+                      width: "calc(100% / 3 )",
                       background: timeVariants?.includes(timeVariant.id)
                         ? "#4876F7"
                         : undefined,
@@ -78,9 +94,80 @@ export const CreateQuestionTimeForm = () => {
                     <span className={styles.time}>{timeVariant.time}</span>
                   </button>
                 </>
-              ))}
+              ))}{" "}
           </div>
         </Form.Item>
+        <Form.Item
+          style={{ width: "100%" }}
+          name={DCreateQuestionTimeLabelsLabels.format}
+          label={DCreateQuestionTimeLabelsLabels.time}
+        >
+          <div className={styles.variantsWrap}>
+            {DCreateQuestionTimeLabelsLabels.formatVariants.map((format) => (
+              <button
+                key={format.id}
+                onClick={() => handleFormatVariant(format.id)}
+                style={{
+                  width: "calc(100% / 2)",
+                  background: formatVariants?.includes(format.id)
+                    ? "#4876F7"
+                    : undefined,
+                  color: formatVariants?.includes(format.id)
+                    ? "#fff"
+                    : undefined,
+                }}
+                className={styles.format}
+              >
+                {format.title}
+              </button>
+            ))}
+          </div>
+        </Form.Item>
+        <Form.Item
+          style={{ width: "100%" }}
+          name={DCreateQuestionTimeLabelsLabels.expertPremium}
+        >
+          <div className={styles.switcher}>
+            <Switch />
+            <label className={styles.label}>
+              {DCreateQuestionTimeLabelsLabels.expertPremium}
+            </label>
+            <Image
+              src={PremiumOrange}
+              width={24}
+              style={{ marginLeft: "-16px" }}
+              height={24}
+              alt="Just for premium"
+            />
+          </div>
+        </Form.Item>
+        <Form.Item
+          style={{ width: "100%", marginTop: "-12px" }}
+          name={DCreateQuestionTimeLabelsLabels.specificUser}
+        >
+          <div className={styles.switcher}>
+            <Switch />
+            <label className={styles.label}>
+              {DCreateQuestionTimeLabelsLabels.specificUser}
+            </label>
+            <Image
+              style={{ marginLeft: "-16px" }}
+              src={PremiumOrange}
+              width={24}
+              height={24}
+              alt="Just for premium"
+            />
+          </div>
+        </Form.Item>
+
+        <Button
+          onClick={onClick}
+          type="primary"
+          style={{ width: "100%", height: "58px" }}
+          size="large"
+        >
+          {DCreateQuestionTimeLabelsLabels.button}
+        </Button>
       </Form>
     </>
   );
