@@ -13,7 +13,7 @@ export const RangHeader = () => {
             Newbie
           </h3>
           <Image src={Arrow} width={78} height={12} alt="Arrow" />
-          <h3 style={{ color: "#F77C48" }} className={styles.rang__item}>
+          <h3 style={{ color: "#8A48F7" }} className={styles.rang__item}>
             Gumu
           </h3>
         </div>

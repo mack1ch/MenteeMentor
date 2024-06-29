@@ -1,6 +1,6 @@
 .feedbackCard {
   border-radius: 42px;
-  background: #fff7f4;
+  background: #f8f4ff;
   width: 100%;
   display: flex;
   align-items: center;
@@ -9,11 +9,11 @@
   min-height: 210px;
   height: auto;
   gap: 28px;
-  background-image: url("../../../../../public/assets/feedback/feedBack-bg-orange.png");
+  background-image: url("../../../../../public/assets/feedback/feedBack-bg-purple.png");
   background-size: cover;
   background-position: center center;
   .h2 {
-    color: #6a3a2b;
+    color: #4e2b6a;
     font-size: 28px;
     font-style: normal;
     font-weight: 800;
@@ -27,7 +27,7 @@
     align-items: center;
     border-radius: 58px;
     border: none;
-    background: #f77c48;
+    background: #8a48f7;
     cursor: pointer;
     transition: all 0.2s;
     color: #fff;
@@ -36,7 +36,7 @@
     font-weight: 800;
     line-height: normal;
     &:hover {
-      background: #ffaa85;
+      background: #8032fd;
     }
   }
 }

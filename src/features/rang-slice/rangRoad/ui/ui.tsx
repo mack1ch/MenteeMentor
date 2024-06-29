@@ -15,7 +15,9 @@ export const RangRoad = () => {
           </span>
           <span className={styles.rangRoadItem}>
             <span className={styles.circle}>2</span>
-            <p className={styles.p}>Master</p>
+            <p style={{ color: "#ADADAD" }} className={styles.p}>
+              Master
+            </p>
           </span>
           <span
             style={{ alignItems: "flex-end" }}

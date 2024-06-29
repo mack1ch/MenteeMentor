@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "./ui.module.scss";
 import Photo from "../../../../../public/assets/avatars/avatar.png";
-import Coin from "../../../../../public/icons/price/coin-orange.svg";
+import Coin from "../../../../../public/icons/price/coins-purple.svg";
 import Ticket from "../../../../../public/icons/price/ticket-blue.svg";
 import Clock from "../../../../../public/icons/price/clock-grey.svg";
 import { Button } from "antd";

@@ -14,7 +14,7 @@ export const AuthFormInputs = () => {
   const [form] = Form.useForm();
   const router = useRouter();
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
+  router.prefetch("/register");
   const onFinish: FormProps<IAuthFormData>["onFinish"] = async (values) => {
     setIsLoading(true);
     const res = await postUser(values);

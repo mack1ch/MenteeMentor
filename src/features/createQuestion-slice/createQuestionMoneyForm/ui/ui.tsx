@@ -3,7 +3,7 @@ import styles from "./ui.module.scss";
 import { DCreateQuestionMoneyFormLabels } from "../data";
 import Image from "next/image";
 import Premium from "../../../../../public/icons/premium/premiumWithStars-orange.svg";
-import Coin from "../../../../../public/icons/price/coin-orange.svg";
+import Coin from "../../../../../public/icons/price/coins-purple.svg";
 import Ticket from "../../../../../public/icons/price/ticket-blue.svg";
 export const CreateQuestionMoneyForm = ({
   onClick,
