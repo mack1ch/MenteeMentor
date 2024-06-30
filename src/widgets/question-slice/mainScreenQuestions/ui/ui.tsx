@@ -2,7 +2,7 @@ import { QuestionCard } from "@/features/question-slice/questionCard";
 import styles from "./ui.module.scss";
 import { FeedbackCard } from "@/features/question-slice/feedbackCard";
 
-export const Question = () => {
+export const MainScreenQuestions = () => {
   return (
     <>
       <section className={styles.question}>

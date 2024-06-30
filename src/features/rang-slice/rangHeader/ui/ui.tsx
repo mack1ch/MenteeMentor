@@ -1,4 +1,4 @@
-import { RightOutlined } from "@ant-design/icons";
+import ArrowRight from "../../../../../public/icons/global/arrow-right.svg";
 import styles from "./ui.module.scss";
 import Arrow from "../../../../../public/icons/rang/arrow.svg";
 import Image from "next/image";
@@ -18,7 +18,7 @@ export const RangHeader = () => {
           </h3>
         </div>
         <button className={styles.array}>
-          <RightOutlined style={{ color: "#8A8A8A" }} />
+          <Image src={ArrowRight} width={24} height={24} alt="Arrow" />
         </button>
       </div>
     </>

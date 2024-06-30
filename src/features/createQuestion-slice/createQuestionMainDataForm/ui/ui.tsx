@@ -16,6 +16,10 @@ import { FileType, getBase64 } from "../model";
 import { UploadButton } from "../model/uploadButton";
 import styles from "./ui.module.scss";
 import { DCreateQuestionMainDataFormLabels } from "../data";
+import useSWR from "swr";
+import { ISubject } from "@/shared/interface/user";
+import { fetcher } from "@/shared/api";
+import { ISelectOptions } from "@/shared/interface/options";
 export const CreateQuestionMainDataForm = ({
   onClick,
 }: {
@@ -27,6 +31,13 @@ export const CreateQuestionMainDataForm = ({
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [previewOpen, setPreviewOpen] = useState(false);
   const [previewImage, setPreviewImage] = useState("");
+  const { data: subjects } = useSWR<ISubject[]>("/subjects", fetcher);
+  const subjectsOptions: ISelectOptions[] | undefined = subjects?.map(
+    (subject) => ({
+      value: subject.id.toString(),
+      label: subject.name,
+    })
+  );
   useEffect(() => {
     form
       .validateFields({ validateOnly: true })
@@ -100,7 +111,7 @@ export const CreateQuestionMainDataForm = ({
               name={DCreateQuestionMainDataFormLabels.subject}
               label={DCreateQuestionMainDataFormLabels.subject}
             >
-              <Select size="large" />
+              <Select options={subjectsOptions} size="large" />
             </Form.Item>
             <Form.Item
               style={{ width: "48%" }}

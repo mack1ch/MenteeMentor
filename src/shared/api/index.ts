@@ -42,7 +42,6 @@ instanceLogged.interceptors.response.use(
     ) {
       try {
         const res = await instance.post("/session/refresh");
-
         sessionStorage.setItem("accessToken", res.data.accessToken);
         return instance.request(originalRequest);
       } catch (error) {
@@ -59,5 +58,15 @@ export const fetcher = (url: string) =>
       "Content-Type": "application/json",
       Accept: "application/json",
       "Access-Control-Allow-Origin": "*",
+    },
+  }).then((res) => res.json());
+
+export const loggedFetcher = (url: string) =>
+  fetch(BASE_URL + url, {
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Origin": "*",
+      Authorization: `Bearer ${sessionStorage.getItem("accessToken")}`,
     },
   }).then((res) => res.json());

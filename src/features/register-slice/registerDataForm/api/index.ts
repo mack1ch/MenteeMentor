@@ -1,7 +1,6 @@
 import { instance, instanceLogged } from "@/shared/api";
 import { IAuth } from "@/shared/interface/auth";
 import { IError } from "@/shared/interface/error";
-
 import { AxiosError } from "axios";
 import { message } from "antd";
 import { IRegisterDataForm } from "../interface";
@@ -12,7 +11,7 @@ export const postUser = async (
 ): Promise<IAuth | null> => {
   const response = await instance
     .post<IAuth>("/auth/register/", {
-      name: authFormData.phone,
+      name: authFormData.name,
       phone: authFormData.phone,
       password: authFormData.password,
     })

@@ -3,6 +3,7 @@
 import { Header } from "@/features/header-slice/header";
 import { AppLayout } from "@/shared/layouts/appLayout";
 import { ThemeLayout } from "@/shared/layouts/themeLayout";
+import { PrivateRoutes } from "@/shared/lib/privateRoutes";
 import React, { ReactNode } from "react";
 
 export default function LayoutPage({
@@ -12,10 +13,12 @@ export default function LayoutPage({
 }>) {
   return (
     <>
-      <ThemeLayout>
-        <Header />
-        <AppLayout>{children}</AppLayout>
-      </ThemeLayout>
+      <PrivateRoutes>
+        <ThemeLayout>
+          <Header />
+          <AppLayout>{children}</AppLayout>
+        </ThemeLayout>
+      </PrivateRoutes>
     </>
   );
 }

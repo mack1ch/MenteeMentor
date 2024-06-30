@@ -1,7 +1,7 @@
 import { CreateQuestion } from "@/widgets/createQuestion-slice/createQuestion";
-import { Question } from "@/widgets/question-slice/question";
+import { LeagueCard } from "@/widgets/league-slice/leagueCard";
+import { MainScreenQuestions } from "@/widgets/question-slice/mainScreenQuestions";
 import { RangCard } from "@/widgets/rang-slice/rangCard";
-import { Space } from "antd";
 
 export default function Home() {
   return (
@@ -19,12 +19,23 @@ export default function Home() {
             display: "flex",
             width: "100%",
             justifyContent: "space-between",
+            gap: "12px",
           }}
         >
           <CreateQuestion />
-          <RangCard />
+          <div
+            style={{
+              display: "flex",
+              flex: 1,
+              gap: "12px",
+              flexDirection: "column",
+            }}
+          >
+            <RangCard />
+            <LeagueCard />
+          </div>
         </div>
-        <Question />
+        <MainScreenQuestions />
       </div>
     </>
   );

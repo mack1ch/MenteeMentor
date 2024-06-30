@@ -18,7 +18,7 @@ export const CreateQuestionRoad = ({
             createRoad.id < currentRoadItemID;
           const isRenderRoadItems =
             createRoad.id === currentRoadItemID ||
-            createRoad.id === currentRoadItemID + 1;
+            currentRoadItemID === createRoad.id + 1;
           return (
             <>
               {isRenderRoadItems && (

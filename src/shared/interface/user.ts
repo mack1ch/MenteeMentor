@@ -7,6 +7,8 @@ export interface IUser {
   isVerified: boolean;
   updatedAt: Date;
   avatar: string;
+  tickets: number;
+  coins: number;
   createdAt: Date;
 }
 

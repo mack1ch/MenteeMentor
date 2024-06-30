@@ -1,0 +1,74 @@
+.leagueMember {
+  display: flex;
+  width: fit-content;
+  width: 49%;
+  padding: 8px 10px;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  background: rgba(227, 227, 227, 0.22);
+  text-wrap: nowrap;
+  white-space: nowrap;
+  .h4 {
+    color: #001a34;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+    .number {
+      color: #b0b0b0;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+  .member {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    .avatar {
+      border-radius: 12px;
+      width: 40px;
+      height: 40px;
+      background: #4876f7;
+    }
+    .memberInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      .name {
+        color: #001a34;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        max-width: 20px;
+        overflow: hidden;
+
+        max-width: 100px;
+      }
+      .role {
+        color: #454545;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+      }
+    }
+  }
+  .coinsWrap {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    .totalCoins {
+      color: #4a4a4a;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+  }
+}

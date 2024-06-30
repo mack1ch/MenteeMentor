@@ -35,8 +35,11 @@
     align-items: center;
     cursor: pointer;
     justify-content: center;
-    cursor: pointer;
     border-radius: 48px;
     background: #f7f7f7;
+
+    &:hover {
+      background: #ebebeb;
+    }
   }
 }
